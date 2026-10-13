@@ -1,21 +1,37 @@
-﻿
+﻿using System;
 
+namespace Pelitesti
+{
+class Program
+{
+public string vastaus = Console.ReadLine();
+public string numero = Console.ReadLine();
+
+
+static void Main()
+{
+    Console.WriteLine("Tervetuloa peliin! Paina mitä tahansa näppäintä aloittaaksesi");
+    Program ohjelma = new Program();
+    ohjelma.Aloitus();
+}
+
+void Aloitus()
+{
 // Tervehdys
-    Console.WriteLine("Moikka maailma!");
+Console.WriteLine("Moikka maailma!");
 
 // Kysytään käyttäjältä jotain
-Console.WriteLine("Onko hienoa: ");
+Console.WriteLine("Paina mitä tahansa näppäintä pelataksesi");
 
 // Luetaan käyttäjän vastaus
-string vastaus = Console.ReadLine();
-Console.WriteLine("Vastasit: " + vastaus);
+Console.ReadLine();
 Kysymys();
-
+}
 void Kysymys()
 {
  // Kysytään käyttäjältä numero
 Console.WriteLine("Anna numero 1-100: ");
-string numero = Console.ReadLine();
+numero = Console.ReadLine();
 if (numero == "4")
 {
     Voitto();
@@ -44,7 +60,7 @@ void Häviö()
     Console.WriteLine("Hävisit pelin lol");
     Console.WriteLine("Haluatko yrittää uudestaan? y/n");
 
-    string vastaus = Console.ReadLine();
+    vastaus = Console.ReadLine();
 
     if(vastaus == "y")
     {
@@ -61,4 +77,6 @@ void Häviö()
         Console.WriteLine("Komentoa ei tunnistettu");
         Häviö();
     }
+}
+}
 }
