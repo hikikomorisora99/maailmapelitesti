@@ -1,61 +1,75 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 
 namespace Pelitesti
 {
 class Program
 {
-public string vastaus = Console.ReadLine();
-public string numero = Console.ReadLine();
+    // Määritellään muuttujat
+public static string vastaus;
+public static string numero;
 
 
 static void Main()
 {
-    Console.WriteLine("Tervetuloa peliin! Paina mitä tahansa näppäintä aloittaaksesi");
-    Program ohjelma = new Program();
-    ohjelma.Aloitus();
+    // Aloitetaan peli
+    Console.WriteLine("Tervetuloa arvauspeliin! Paina mitä tahansa näppäintä aloittaaksesi");
+    Console.ReadKey();
+    Aloitus();
 }
 
-void Aloitus()
+static void Aloitus()
 {
 // Tervehdys
-Console.WriteLine("Moikka maailma!");
+Console.WriteLine("Moikka pelaaja!");
 
 // Kysytään käyttäjältä jotain
-Console.WriteLine("Paina mitä tahansa näppäintä pelataksesi");
+Console.WriteLine("Paina mitä tahansa näppäintä jatkaaksesi");
 
 // Luetaan käyttäjän vastaus
-Console.ReadLine();
+Console.ReadKey();
 Kysymys();
 }
-void Kysymys()
+static void Kysymys()
 {
  // Kysytään käyttäjältä numero
-Console.WriteLine("Anna numero 1-100: ");
+Console.WriteLine("Anna numero 1-500: ");
+
+// Luetaan käyttäjän vastaus ja tarkistetaan se
 numero = Console.ReadLine();
-if (numero == "4")
+switch (numero)
 {
-    Voitto();
+    case "42":
+        Voitto();
+        break;
+
+    case "69":
+        Easter1();
+        break;
+
+    case "67":
+        Easter2();
+        break;
+
+    case "420":
+        Easter3();
+        break;
+
+    default:
+        Häviö();
+        break;
 }
-else if (numero == "67")
-{
-    Console.WriteLine("HEHE 6767676767");
-    Häviö();
 }
 
-else
-{
-    Häviö();
-}   
-}
-
-void Voitto()
+static void Voitto()
 {
     Console.WriteLine("Arvasit oikein!");
     Console.WriteLine("Paina mitä tahansa näppäintä sulkeaksesi peli");
-    Console.ReadLine();
+    Console.ReadKey();
 }
 
-void Häviö()
+static void Häviö()
 {
     Console.WriteLine("Hävisit pelin lol");
     Console.WriteLine("Haluatko yrittää uudestaan? y/n");
@@ -77,6 +91,33 @@ void Häviö()
         Console.WriteLine("Komentoa ei tunnistettu");
         Häviö();
     }
+}
+
+public static void Easter1()
+{
+    Console.WriteLine("Easter egg 1 löytyi!");
+    Console.OutputEncoding = Encoding.UTF8;
+    string easter1 = File.ReadAllText("1.txt");
+    Console.WriteLine(easter1);
+    Console.ReadKey();
+}
+
+public static void Easter2()
+{
+    Console.WriteLine("Easter egg 2 löytyi!");
+    Console.OutputEncoding = Encoding.UTF8;
+    string easter2 = File.ReadAllText("2.txt");
+    Console.WriteLine(easter2);
+    Console.ReadKey();
+}
+
+public static void Easter3()
+{
+    Console.WriteLine("Easter egg 3 löytyi!");
+    Console.OutputEncoding = Encoding.UTF8;
+    string easter3 = File.ReadAllText("3.txt");
+    Console.WriteLine(easter3);
+    Console.ReadKey();
 }
 }
 }
