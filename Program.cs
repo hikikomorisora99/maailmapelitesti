@@ -22,10 +22,10 @@ static void Main()
 static void Aloitus()
 {
 // Tervehdys
-Console.WriteLine("Moikka pelaaja!");
+Console.WriteLine("Moikka pelaaja! Mikä on nimesi?");
 
-// Kysytään käyttäjältä jotain
-Console.WriteLine("Paina mitä tahansa näppäintä jatkaaksesi");
+string nimi = Console.ReadLine();
+Console.WriteLine($"Hauska tutustua {nimi}! Paina mitä tahansa näppäintä jatkaaksesi");
 
 // Luetaan käyttäjän vastaus
 Console.ReadKey();
@@ -84,6 +84,7 @@ static void Häviö()
     else if (vastaus == "n")
     {
         Console.WriteLine("Moi sitten");
+        Console.ReadKey();
     }
 
     else 
@@ -100,6 +101,7 @@ public static void Easter1()
     string easter1 = File.ReadAllText("1.txt");
     Console.WriteLine(easter1);
     Console.ReadKey();
+    Kysymys();
 }
 
 public static void Easter2()
@@ -109,6 +111,7 @@ public static void Easter2()
     string easter2 = File.ReadAllText("2.txt");
     Console.WriteLine(easter2);
     Console.ReadKey();
+    Kysymys();
 }
 
 public static void Easter3()
@@ -118,6 +121,7 @@ public static void Easter3()
     string easter3 = File.ReadAllText("3.txt");
     Console.WriteLine(easter3);
     Console.ReadKey();
+    Kysymys();
 }
 }
 }
